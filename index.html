@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Virtual Sri Lanka | Immersive Travel Experience</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div id="loading">
+        <div class="loader">
+            <div class="loader-icon animate__animated animate__pulse">
+                <i class="fas fa-map-marked-alt"></i>
+            </div>
+            <h1>Virtual Sri Lanka</h1>
+            <p>Preparing your journey...</p>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <i class="fas fa-route me-2"></i>Virtual Sri Lanka
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#destinations">Destinations</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#landmarks">Landmarks</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#map">Interactive Map</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#culture">Culture</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1 class="animate__animated animate__fadeInDown">Discover Sri Lanka</h1>
+            <p class="animate__animated animate__fadeIn animate__delay-1s">An immersive virtual journey through the Pearl of the Indian Ocean</p>
+            <a href="#destinations" class="btn btn-primary btn-lg mt-3 animate__animated animate__fadeInUp animate__delay-2s">
+                Begin Exploration <i class="fas fa-arrow-down ms-2"></i>
+            </a>
+        </div>
+        <div class="scroll-indicator animate__animated animate__bounce animate__infinite">
+            <i class="fas fa-chevron-down"></i>
+        </div>
+    </section>
+
+    <!-- Destinations Section -->
+    <section id="destinations" class="destinations">
+        <div class="container">
+            <h2 class="section-title">Explore Sri Lanka's Regions</h2>
+            
+            <div class="destination-card left-aligned">
+                <div class="destination-image parallax" style="background-image: url('images/Gangaramaya\ Temple\ is\ one\ of\ the\ most\ important….jfif');"></div>
+                <div class="destination-content">
+                    <h3>Colombo</h3>
+                    <p>Sri Lanka's vibrant capital where modernity meets colonial charm, with bustling markets and scenic beaches.</p>
+                    <button class="btn btn-outline-light sound-btn" data-sound="city">
+                        <i class="fas fa-volume-up"></i> Play City Sounds
+                    </button>
+                </div>
+            </div>
+            
+            <div class="destination-card right-aligned">
+                <div class="destination-image parallax" style="background-image: url('images/Visita\ il\ Sri\ Dalada\ Maligawa\ a\ Kandy\,\ Sri\ Lanka….jfif');"></div>
+                <div class="destination-content">
+                    <h3>Kandy</h3>
+                    <p>Cultural heart of Sri Lanka, home to the sacred Temple of the Tooth and lush green hills.</p>
+                    <button class="btn btn-outline-light sound-btn" data-sound="temple">
+                        <i class="fas fa-volume-up"></i> Play Temple Sounds
+                    </button>
+                </div>
+            </div>
+            
+            <div class="destination-card left-aligned">
+                <div class="destination-image parallax" style="background-image: url('images/9a82cec8-a941-47b4-8455-8ef359aea6c8.jfif');"></div>
+                <div class="destination-content">
+                    <h3>Sigiriya</h3>
+                    <p>The ancient rock fortress known as the "Eighth Wonder of the World" with stunning frescoes.</p>
+                    <button class="btn btn-outline-light sound-btn" data-sound="nature">
+                        <i class="fas fa-volume-up"></i> Play Nature Sounds
+                    </button>
+                </div>
+            </div>
+            
+            <div class="destination-card right-aligned">
+                <div class="destination-image parallax" style="background-image: url('images/5f2cbc44-a6dd-40be-94c6-e9380d65a0d0.jfif');"></div>
+                <div class="destination-content">
+                    <h3>Galle</h3>
+                    <p>Historic coastal city with a well-preserved Dutch fort and beautiful beaches.</p>
+                    <button class="btn btn-outline-light sound-btn" data-sound="market">
+                        <i class="fas fa-volume-up"></i> Play Market Sounds
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Landmarks Section -->
+    <section id="landmarks" class="landmarks">
+        <div class="container">
+            <h2 class="section-title">Iconic Landmarks</h2>
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <div class="landmark-card">
+                        <div class="landmark-image" style="background-image: url('images/Visita\ il\ Sri\ Dalada\ Maligawa\ a\ Kandy\,\ Sri\ Lanka….jfif');"></div>
+                        <div class="landmark-info">
+                            <h3>Temple of the Tooth</h3>
+                            <p>Sacred Buddhist temple in Kandy housing the relic of the tooth of the Buddha.</p>
+                            <button class="btn btn-primary landmark-btn" data-landmark="tooth-temple">
+                                Explore <i class="fas fa-arrow-right ms-1"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="landmark-card">
+                        <div class="landmark-image" style="background-image: url('images/9a82cec8-a941-47b4-8455-8ef359aea6c8.jfif');"></div>
+                        <div class="landmark-info">
+                            <h3>Sigiriya Rock Fortress</h3>
+                            <p>Ancient rock fortress and palace ruins with famous frescoes and lion's paw entrance.</p>
+                            <button class="btn btn-primary landmark-btn" data-landmark="sigiriya">
+                                Explore <i class="fas fa-arrow-right ms-1"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="landmark-card">
+                        <div class="landmark-image" style="background-image: url('images/5f2cbc44-a6dd-40be-94c6-e9380d65a0d0.jfif');"></div>
+                        <div class="landmark-info">
+                            <h3>Galle Fort</h3>
+                            <p>UNESCO-listed 17th-century Dutch fort with colonial architecture and ocean views.</p>
+                            <button class="btn btn-primary landmark-btn" data-landmark="galle-fort">
+                                Explore <i class="fas fa-arrow-right ms-1"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Map Section -->
+    <section id="map" class="map-section">
+        <div class="container">
+            <h2 class="section-title">Interactive Travel Map</h2>
+            <div class="row">
+                <div class="col-lg-6">
+                    <p>Explore Sri Lanka's geography and plan your virtual itinerary. Click on the markers to discover points of interest.</p>
+                    <div class="map-controls">
+                        <div class="form-group">
+                            <label for="map-type">Map Style:</label>
+                            <select id="map-type" class="form-select">
+                                <option value="streets">Streets</option>
+                                <option value="satellite">Satellite</option>
+                                <option value="terrain">Terrain</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div id="travel-map"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Culture Section -->
+    <section id="culture" class="culture">
+        <div class="container">
+            <h2 class="section-title">Sri Lankan Culture</h2>
+            <div class="culture-grid">
+                <div class="culture-item">
+                    <i class="fas fa-utensils"></i>
+                    <h3>Cuisine</h3>
+                    <p>From hoppers to kottu, experience Sri Lanka's flavorful and spicy culinary traditions.</p>
+                </div>
+                <div class="culture-item">
+                    <i class="fas fa-theater-masks"></i>
+                    <h3>Arts</h3>
+                    <p>Traditional arts like Kandyan dance, devil dancing, and vibrant festivals.</p>
+                </div>
+                <div class="culture-item">
+                    <i class="fas fa-torii-gate"></i>
+                    <h3>Religion</h3>
+                    <p>The blend of Buddhist, Hindu, Muslim and Christian traditions in daily life.</p>
+                </div>
+                <div class="culture-item">
+                    <i class="fas fa-kiwi-bird"></i>
+                    <h3>Wildlife</h3>
+                    <p>From elephants to leopards, Sri Lanka's incredible biodiversity.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h3>Virtual Sri Lanka</h3>
+                    <p>An immersive digital journey through the Pearl of the Indian Ocean.</p>
+                </div>
+                <div class="col-md-4">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#destinations">Destinations</a></li>
+                        <li><a href="#landmarks">Landmarks</a></li>
+                        <li><a href="#map">Interactive Map</a></li>
+                        <li><a href="#culture">Culture</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h3>Connect</h3>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2024 Virtual Sri Lanka. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Audio Elements -->
+    <audio id="city-sound" src="sounds/city.mp3" loop></audio>
+    <audio id="temple-sound" src="sounds/temple.mp3" loop></audio>
+    <audio id="nature-sound" src="sounds/nature.mp3" loop></audio>
+    <audio id="market-sound" src="sounds/market.mp3" loop></audio>
+
+    <!-- Landmark Modal -->
+    <div class="modal fade" id="landmarkModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="landmarkModalTitle">Landmark Details</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <img id="landmarkModalImage" src="" alt="Landmark" class="img-fluid rounded">
+                            <button class="btn btn-outline-secondary mt-3 w-100" id="landmarkSoundBtn">
+                                <i class="fas fa-volume-up"></i> Play Ambient Sound
+                            </button>
+                        </div>
+                        <div class="col-md-6">
+                            <h3 id="landmarkModalName"></h3>
+                            <p id="landmarkModalDescription"></p>
+                            <div class="landmark-facts">
+                                <h5>Quick Facts:</h5>
+                                <ul id="landmarkModalFacts"></ul>
+                            </div>
+                            <div class="landmark-location mt-3">
+                                <h5>Location:</h5>
+                                <div id="landmarkMiniMap" style="height: 150px; border-radius: 8px;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" id="addToItineraryBtn">
+                        <i class="fas fa-plus"></i> Add to Itinerary
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
+    <script src="js/map.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
